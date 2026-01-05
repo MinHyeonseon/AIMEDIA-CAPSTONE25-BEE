@@ -6,7 +6,7 @@
 
 ## <u>Teamate</u> Project Background
 - ### 기존 해결책의 문제점
-  - 웨어러블 기기는 보통ﾠ편의성과 호환성 위주로 개발되며 보안 업데이트나 암호화 프로토콜 적용이 부족한 경우가 많아ﾠ공격자가 쉽게 통신을 가로채거나 변조 가능
+  - 웨어러블 기기는 보통ﾠ 편의성과 호환성 위주로 개발되며 보안 업데이트나 암호화 프로토콜 적용이 부족한 경우가 많아 ﾠ공격자가 쉽게 통신을 가로채거나 변조 가능
   - 공격자가 수트의 진동을 임의로 제어하면 착용자에게 불쾌감, 통증, 피부 자극, 근육 긴장, 장비 손상 등ﾠ신체적 위험 초래 가능
 - ### 필요성 
   - AR과 연동되는 수트는 전용 앱으로만 제어되어야 하지만 통신이 조작되면 공격자가 진동을 임의로 제어할 수 있어 제어 권한 탈취와 개인정보 유출 위험 발생
@@ -135,14 +135,14 @@
     |---|---|
     | ![adaptive](https://github.com/user-attachments/assets/470f1187-fa11-49a9-a06a-2d6009815709) | ![fixed](https://github.com/user-attachments/assets/fcdf6c9b-1301-4c8d-90c6-bcc88c90a30a) |
 
-    <h4>Proposed(Deeplearning Valid) Confusion Matrix</h4>  <br>
+    <h4>Proposed(Deeplearning Valid) Confusion Matrix</h4><br>
 
 
 
 
     <img src="https://github.com/user-attachments/assets/5a0252ba-57f6-4379-a03e-9eb4f776bbac" alt="attack_detection_prob_plot_page" width="600" />
 
-    <h4>Attack Detection Gragh</h4>
+    <h4>Attack Detection Gragh</h4><br>
 
 
 
