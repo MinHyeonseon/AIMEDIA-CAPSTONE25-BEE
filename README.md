@@ -99,12 +99,12 @@
     
 
     <img width="2809" height="1310" alt="결과1 솔루션 실행 화면" src="https://github.com/user-attachments/assets/ab89ec99-81be-484b-97ea-e7e62954991c" />
-    *솔루션 실행 화면*
+    <figcaption>솔루션 실행 화면<figcaption>
     
 
 
     <img width="976" height="607" alt="결과2 공격 탐지시 메일 전송" src="https://github.com/user-attachments/assets/63fe9629-2867-4808-891a-57c56c96063e" />
-    *공격 탐지 시 메일 전송*
+    <figcaption>공격 탐지 시 메일 전송<figcaption>
     
 
     + BLE 공격 상황시 발생하는 advertising packet을 활용해 추출한 상황별 jitter dataset을 Transformer로 학습
