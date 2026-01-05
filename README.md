@@ -51,7 +51,7 @@
     <img width="500" alt="Part3-3 Advertising Report" src="https://github.com/user-attachments/assets/93909eff-d269-45df-a1c4-e788e5075967" /><br>
     <h4>Advertising Report 캡처 화면</h4>
     
-    <br><br>
+    <br>
 
     <img width="500" alt="Part4-1" src="https://github.com/user-attachments/assets/2e687125-c9f3-44cf-aadd-99a71d2059ed" /><br>
     <h4>상황별 jitter 비교 그래프</h4>
@@ -146,7 +146,7 @@
 
 
 
-    - Threshold 기반은 평균/표준편차 같은 단일 통계값이 임계범위에 들어오면 정상, 벗어나면 공격으로 보는 고정 규칙이라서, 스푸핑 비율·환경 변화로 분포가 조금만 바뀌어도 성능이 쉽게 무너짐  
+    - Threshold 기반은 평균/표준편차 같은 단일 통계값이 임계범위에 들어오면 정상, 벗어나면 공격으로 보는 고정 규칙이여서, 스푸핑 비율·환경 변화로 분포가 조금만 바뀌어도 성능이 쉽게 무너짐  
     - 하지만 Proposed(Deeplearning Valid) 방법은 윈도우 전체의 시간적 패턴(형태, 변화량, 연속성)을 학습해 단순 수치가 비슷해도 “공격스러운 흐름”을 구분할 수 있고, (Adaptive처럼) 데이터 비율에 맞춰 학습하면 분포 변화에도 적응해서 탐지율이 더 높게 유지됨
 
 
