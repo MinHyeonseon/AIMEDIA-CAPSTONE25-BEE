@@ -64,18 +64,44 @@
   
 ## Conclusion
   - 실험 1: BLE 조명 장치 공격 결과
+    ![Part2-1 BLE 조명 공격 환경](https://github.com/user-attachments/assets/867de032-aa4a-4bae-80e7-f781d79ac387)
+    BLE 조명 공격 환경
+    
+    <img width="2479" height="2475" alt="Part2-2 BLE 조명 해킹" src="https://github.com/user-attachments/assets/006d9070-3a5a-42f9-8bc9-d1d089cf491b" />
+    BLE 조명 해킹 결과
+
     + 특정 UUID를 통한 Write 접근이 인증 및 무결성 검증 없이 허용됨을 확인
     + 공격자가 조명 제어(색상 변경)를 성공적으로 수행 → BLE Write 취약점 검증 완료
     + BtleJuice 중계 시 GATT 요청 변조가 가능, 공격자가 사용자의 정상 명령어를 수정하여 조명 동작을 제어함
     + **BLE Write 무결성 취약점 존재, 기기 인증 체계 부재로 공격자 개입이 용이함**
 
   - 실험 2: AR 수트 진동 센서 공격 결과
+    ![Part3-1 BLE 웨어러블기기 공격 환경](https://github.com/user-attachments/assets/7b836873-61c4-46bf-8f86-f00043bdeaab)
+    BLE 웨어러블기기 공격 환경
+
+    <img width="2575" height="1750" alt="Part3-2 BLE 웨어러블 기기 해킹" src="https://github.com/user-attachments/assets/844d5a6a-4079-4714-a7d2-84a5f4729528" />
+    BLE 웨어러블 기기 해킹 결과
+
+
     + UUID에 직접 바이트 payload를 Write하여 센서 진동 제어 성공
     + 개별 센서별 진동 강도 조절 가능
     + 앱–수트 간 세션이 공격자에 의해 강제 끊기고 재주입될 수 있음 → 통신 무결성 취약
     + **AR 웨어러블 기기 역시 Bluetooth 통신 취약점을 통해 악용 가능하며, 공격자는 진동 기능을 임의로 제어 가능**
 
   - 실험 3: 실시간 지터 공격 탐지 결과
+    <img width="1512" height="982" alt="Part3-3 Advertising Report" src="https://github.com/user-attachments/assets/93909eff-d269-45df-a1c4-e788e5075967" />
+    Advertising Report 캡처 화면
+
+    <img width="2071" height="2062" alt="Part4-1" src="https://github.com/user-attachments/assets/2e687125-c9f3-44cf-aadd-99a71d2059ed" />
+    상황별 지터 비교 그래프
+
+    <img width="2809" height="1310" alt="결과1 솔루션 실행 화면" src="https://github.com/user-attachments/assets/ab89ec99-81be-484b-97ea-e7e62954991c" />
+    솔루션 실행 화면
+
+
+    <img width="976" height="607" alt="결과2 공격 탐지시 메일 전송" src="https://github.com/user-attachments/assets/63fe9629-2867-4808-891a-57c56c96063e" />
+    공격 탐지 시 메일 전송
+
     + BLE 공격 상황시 발생하는 advertising packet을 활용해 추출한 상황별 jitter dataset을 Transformer로 학습
     + 하나의 스크립트로 작성하여 효율적인 **실시간 공격 탐지 확인**
     + 공격 탐지 시 메일로 **알림 전송 기능** 구현
