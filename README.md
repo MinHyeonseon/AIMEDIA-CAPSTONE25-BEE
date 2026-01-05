@@ -67,8 +67,8 @@
     ![Part2-1 BLE 조명 공격 환경](https://github.com/user-attachments/assets/867de032-aa4a-4bae-80e7-f781d79ac387)
     BLE 조명 공격 환경
     
-    <img width="2479" height="2475" alt="Part2-2 BLE 조명 해킹" src="https://github.com/user-attachments/assets/006d9070-3a5a-42f9-8bc9-d1d089cf491b" />
-    *BLE 조명 해킹 결과*
+    <img width="2479/2" height="2475/2" alt="Part2-2 BLE 조명 해킹" src="https://github.com/user-attachments/assets/006d9070-3a5a-42f9-8bc9-d1d089cf491b" />
+    BLE 조명 해킹 결과<br>
     
 
     + 특정 UUID를 통한 Write 접근이 인증 및 무결성 검증 없이 허용됨을 확인
