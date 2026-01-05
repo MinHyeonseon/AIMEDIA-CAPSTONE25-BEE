@@ -68,7 +68,8 @@
     BLE 조명 공격 환경
     
     <img width="2479" height="2475" alt="Part2-2 BLE 조명 해킹" src="https://github.com/user-attachments/assets/006d9070-3a5a-42f9-8bc9-d1d089cf491b" />
-    BLE 조명 해킹 결과
+    *BLE 조명 해킹 결과*
+    
 
     + 특정 UUID를 통한 Write 접근이 인증 및 무결성 검증 없이 허용됨을 확인
     + 공격자가 조명 제어(색상 변경)를 성공적으로 수행 → BLE Write 취약점 검증 완료
@@ -80,7 +81,8 @@
     BLE 웨어러블기기 공격 환경
 
     <img width="2575" height="1750" alt="Part3-2 BLE 웨어러블 기기 해킹" src="https://github.com/user-attachments/assets/844d5a6a-4079-4714-a7d2-84a5f4729528" />
-    BLE 웨어러블 기기 해킹 결과
+    *BLE 웨어러블 기기 해킹 결과*
+    
 
 
     + UUID에 직접 바이트 payload를 Write하여 센서 진동 제어 성공
@@ -93,14 +95,17 @@
     Advertising Report 캡처 화면
 
     <img width="2071" height="2062" alt="Part4-1" src="https://github.com/user-attachments/assets/2e687125-c9f3-44cf-aadd-99a71d2059ed" />
-    상황별 지터 비교 그래프
+    *상황별 지터 비교 그래프*
+    
 
     <img width="2809" height="1310" alt="결과1 솔루션 실행 화면" src="https://github.com/user-attachments/assets/ab89ec99-81be-484b-97ea-e7e62954991c" />
-    솔루션 실행 화면
+    *솔루션 실행 화면*
+    
 
 
     <img width="976" height="607" alt="결과2 공격 탐지시 메일 전송" src="https://github.com/user-attachments/assets/63fe9629-2867-4808-891a-57c56c96063e" />
-    공격 탐지 시 메일 전송
+    *공격 탐지 시 메일 전송*
+    
 
     + BLE 공격 상황시 발생하는 advertising packet을 활용해 추출한 상황별 jitter dataset을 Transformer로 학습
     + 하나의 스크립트로 작성하여 효율적인 **실시간 공격 탐지 확인**
