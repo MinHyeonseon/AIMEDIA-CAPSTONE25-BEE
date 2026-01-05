@@ -78,10 +78,10 @@
 
   - 실험 2: AR 수트 진동 센서 공격 결과
     ![Part3-1 BLE 웨어러블기기 공격 환경](https://github.com/user-attachments/assets/7b836873-61c4-46bf-8f86-f00043bdeaab)
-    BLE 웨어러블기기 공격 환경
+    <figcaption>BLE 웨어러블기기 공격 환경<figcaption>
 
     <img width="2575" height="1750" alt="Part3-2 BLE 웨어러블 기기 해킹" src="https://github.com/user-attachments/assets/844d5a6a-4079-4714-a7d2-84a5f4729528" />
-    *BLE 웨어러블 기기 해킹 결과*
+    <figcaption>BLE 웨어러블 기기 해킹 결과<figcaption>
     
 
 
