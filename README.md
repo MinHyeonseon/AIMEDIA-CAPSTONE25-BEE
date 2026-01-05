@@ -11,12 +11,15 @@
 - ### 필요성 
   - AR과 연동되는 수트는 전용 앱으로만 제어되어야 하지만 통신이 조작되면 공격자가 진동을 임의로 제어할 수 있어 제어 권한 탈취와 개인정보 유출 위험 발생
   - 출시된 지 오래되지 않은 AR/VR연동 웨어러블 수트는 기능 중심 개발로 인해 보안 검증이 미흡해 블루투스 취약점 등 보안 우려가 존재하여 해결 방안 필요
+  - BLE/Bluetooth 기반 AR 기기는 무결성·인증 취약점으로 인해 공격자가 기기 동작을 직접 조작할 수 있음
+  - 기존 보안 방식은 재연결 시나리오, 중계 공격, 무결성 검증 부재 상황을 막기 어려움
+  - AI 기반 실시간 이상행위 탐지 및 패킷 학습을 통한 보안 강화 솔루션의 필요성 확인
   
 ## System Design
 - ### System Requirements
   + ### 공통 실험 환경 구축
-    <img width="516" height="252" alt="image" src="https://github.com/user-attachments/assets/6f83e3a5-d1bb-438d-b3a3-b5c1f973edcd" /><br>
-    <실험 환경 구성도><br>
+    <img width="516" height="252" alt="image" src="https://github.com/user-attachments/assets/6f83e3a5-d1bb-438d-b3a3-b5c1f973edcd" />
+    <h4>실험 환경 구성도</h4><br>
 
     + 칼리 리눅스 기반 공격 환경 세팅    
     + BLE 지원 동글을 장착한 컴퓨터 A(피해자), 컴퓨터 B(공격자) 구성    
@@ -24,8 +27,9 @@
     + Bluepy, BtleJuice 등 오픈소스 툴을 활용한 통신 분석 및 공격 시나리오 설계  <br><br>  
 
   + ### 실험 1: BLE 조명 장치 공격
-    <img width="409" height="300" alt="image" src="https://github.com/user-attachments/assets/67cd45d0-8f7d-493a-8ac9-ca3f80eda263" /><br>
-    <BLE 조명 공격 환경><br><br>
+    <img width="409" height="300" alt="image" src="https://github.com/user-attachments/assets/67cd45d0-8f7d-493a-8ac9-ca3f80eda263" />
+    <h4>BLE 조명 공격 환경</h4>
+      <br><br>
 
     1) 특정 BLE 장치(KocoaFab_BLE)를 스캔하여 UUID 기반 Write Characteristic을 식별    
     2) 값 "2\n" 전송 시 조명의 색상 제어 가능함을 확인    
@@ -33,8 +37,9 @@
 
   + ### 실험 2: AR 수트 진동 센서 공격
     
-     <img src="https://github.com/user-attachments/assets/33a14611-6acc-4efd-bd0b-718feeb4c79d" alt="Part3-1 BLE 웨어러블기기 공격 환경" width="409" /><br>
-     <BLE 웨어러블기기 공격 환경><br><br>
+     <img src="https://github.com/user-attachments/assets/33a14611-6acc-4efd-bd0b-718feeb4c79d" alt="Part3-1 BLE 웨어러블기기 공격 환경" width="409" />
+     <h4>BLE 웨어러블기기 공격 환경</h4>
+       <br><br>
 
     1) 실험 1에서 세팅한 환경을 BLE 조명이 아닌 촉각 수트에 적용하여 실험
     2) 공격자가 PC 동글을 통해 수트와 모바일 앱 사이의 Bluetooth 통신을 가로채는 환경 구성
@@ -44,10 +49,14 @@
    
   + ### 실험 3: 실시간 Jitter 공격 탐지 <br><br>
     <img width="500" alt="Part3-3 Advertising Report" src="https://github.com/user-attachments/assets/93909eff-d269-45df-a1c4-e788e5075967" /><br>
-    <Advertising Report 캡처 화면><br><br>
+    <h4>Advertising Report 캡처 화면</h4>
+    
+    <br><br>
 
     <img width="500" alt="Part4-1" src="https://github.com/user-attachments/assets/2e687125-c9f3-44cf-aadd-99a71d2059ed" /><br>
-    <상황별 jitter 비교 그래프><br><br>
+    <h4>상황별 jitter 비교 그래프</h4>
+      
+      <br><br>
     
     1) BLE 공격 상황시 발생하는 advertising packet을 활용해 추출한 상황별 jitter dataset을 Transformer로 학습하여 딥러닝 모델 생성
     2) tshark와 연동하여 실시간 jitter를 측정하는 코드 구현
@@ -76,7 +85,8 @@
 ## Conclusion
   - ### 실험 1: BLE 조명 장치 공격 결과<br>
     <img width="500" height="2475" alt="Part2-2 BLE 조명 해킹" src="https://github.com/user-attachments/assets/006d9070-3a5a-42f9-8bc9-d1d089cf491b" /><br>
-    <BLE 조명 해킹 결과><br><br>
+    <h4>BLE 조명 해킹 결과</h4>
+      <br></h4>
     
     + 특정 UUID를 통한 Write 접근이 인증 및 무결성 검증 없이 허용됨을 확인
     + 공격자가 조명 제어(색상 변경)를 성공적으로 수행 → BLE Write 취약점 검증 완료
@@ -86,7 +96,8 @@
   - ### 실험 2: AR 수트 진동 센서 공격 결과
 
     <img width="500" height="1750" alt="Part3-2 BLE 웨어러블 기기 해킹" src="https://github.com/user-attachments/assets/844d5a6a-4079-4714-a7d2-84a5f4729528" /><br>
-    <BLE 웨어러블 기기 해킹 결과><br><br>
+    <h4>BLE 웨어러블 기기 해킹 결과</h4>
+      <br><br>
     
 
 
@@ -97,23 +108,47 @@
 
   - ### 실험 3: 실시간 Jitter 공격 탐지 결과<br><br>
 
-    <img width="600" alt="결과1 솔루션 실행 화면" src="https://github.com/user-attachments/assets/ab89ec99-81be-484b-97ea-e7e62954991c" /><br>
-    <솔루션 실행 화면><br><br>
+    <img width="600" alt="결과1 솔루션 실행 화면" src="https://github.com/user-attachments/assets/ab89ec99-81be-484b-97ea-e7e62954991c" />
+    <h4>솔루션 실행 화면</h4>
+      <br><br>
 
-    <img width="600" alt="결과2 공격 탐지시 메일 전송" src="https://github.com/user-attachments/assets/63fe9629-2867-4808-891a-57c56c96063e" /><br>
-    <공격 탐지 시 메일 전송><br><br>
+    <img width="600" alt="결과2 공격 탐지시 메일 전송" src="https://github.com/user-attachments/assets/63fe9629-2867-4808-891a-57c56c96063e" />
+    <h4>공격 탐지 시 메일 전송</h4>
+      <br><br>
 
     + 실시간으로 jitter 정보를 받아 적은 지연으로 공격 탐지
     + 하나의 스크립트로 작성하여 효율적인 **실시간 공격 탐지 확인**
     + 공격 탐지 시 메일로 **알림 전송 기능** 구현<br><br>
-      
-  - BLE/Bluetooth 기반 AR 기기는 무결성·인증 취약점으로 인해 공격자가 기기 동작을 직접 조작할 수 있음
-  - 기존 보안 방식은 재연결 시나리오, 중계 공격, 무결성 검증 부재 상황을 막기 어려움
-  - AI 기반 실시간 이상행위 탐지 및 패킷 학습을 통한 보안 강화 솔루션의 필요성 확인
-  - 실시간 공격 탐지를 통해 외부의 악의적 간섭을 차단하고, 의도치 않은 촉각 피드백 및 오작동을 방지하여 기기 사용의 안전성과 신뢰도 확보
-  - 사전 인지된 공격 정보를 사운드 알림 등과 연계 시, 사용자 즉각 경고를 통한 효율적 예방 가능
-  - 기존 보안 시스템과의 통합 가능해 더욱 효과적인 다층적 보안 체계 구축 가능
-  - 추가 센서 및 고가 장비 없이 소프트웨어로만 구현 가능해 총소유비용(TCO) 절감 가능
+
+  - ### Threshold(All Windows), Proposed(Deeplearning Valid) 방법 비교
+
+    | Threshold-based: Mean | Threshold-based: STD |
+    |---|---|
+    | ![mean](https://github.com/user-attachments/assets/f42bfe15-4f0e-4aac-9d55-0581e5111905) | ![std](https://github.com/user-attachments/assets/fe6310bc-2b34-4a2f-be40-035888c0b4e4) |
+
+  
+    <h4>Threshold(All Windows) Confusion Matrix</h4>
+
+    <br>
+
+    | Proposed: Adaptive | Proposed: Fixed |
+    |---|---|
+    | ![adaptive](https://github.com/user-attachments/assets/470f1187-fa11-49a9-a06a-2d6009815709) | ![fixed](https://github.com/user-attachments/assets/fcdf6c9b-1301-4c8d-90c6-bcc88c90a30a) |
+
+    <h4>Proposed(Deeplearning Valid) Confusion Matrix</h4>
+
+
+    - Threshold 기반은 평균/표준편차 같은 단일 통계값이 임계범위에 들어오면 정상, 벗어나면 공격으로 보는 고정 규칙이라서, 스푸핑 비율·환경 변화로 분포가 조금만 바뀌어도 성능이 쉽게 무너짐  
+    - 하지만 Proposed(Deeplearning Valid) 방법은 윈도우 전체의 시간적 패턴(형태, 변화량, 연속성)을 학습해 단순 수치가 비슷해도 “공격스러운 흐름”을 구분할 수 있고, (Adaptive처럼) 데이터 비율에 맞춰 학습하면 분포 변화에도 적응해서 탐지율이 더 높게 유지됨
+
+
+<br><br>
+
+  - ### 기대 효과
+    - 실시간 공격 탐지를 통해 외부의 악의적 간섭을 차단하고, 의도치 않은 촉각 피드백 및 오작동을 방지하여 기기 사용의 안전성과 신뢰도 확보
+    - 사전 인지된 공격 정보를 사운드 알림 등과 연계 시, 사용자 즉각 경고를 통한 효율적 예방 가능
+    - 기존 보안 시스템과의 통합 가능해 더욱 효과적인 다층적 보안 체계 구축 가능
+    - 추가 센서 및 고가 장비 없이 소프트웨어로만 구현 가능해 총소유비용(TCO) 절감 가능
 
 
     
