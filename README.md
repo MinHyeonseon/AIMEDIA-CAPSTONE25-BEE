@@ -29,7 +29,7 @@
   + ### 실험 1: BLE 조명 장치 공격
     <img width="409" height="300" alt="image" src="https://github.com/user-attachments/assets/67cd45d0-8f7d-493a-8ac9-ca3f80eda263" />
     <h4>BLE 조명 공격 환경</h4>
-      <br><br>
+      <br>
 
     1) 특정 BLE 장치(KocoaFab_BLE)를 스캔하여 UUID 기반 Write Characteristic을 식별    
     2) 값 "2\n" 전송 시 조명의 색상 제어 가능함을 확인    
@@ -39,7 +39,7 @@
     
      <img src="https://github.com/user-attachments/assets/33a14611-6acc-4efd-bd0b-718feeb4c79d" alt="Part3-1 BLE 웨어러블기기 공격 환경" width="409" />
      <h4>BLE 웨어러블기기 공격 환경</h4>
-       <br><br>
+       <br>
 
     1) 실험 1에서 세팅한 환경을 BLE 조명이 아닌 촉각 수트에 적용하여 실험
     2) 공격자가 PC 동글을 통해 수트와 모바일 앱 사이의 Bluetooth 통신을 가로채는 환경 구성
@@ -56,7 +56,7 @@
     <img width="500" alt="Part4-1" src="https://github.com/user-attachments/assets/2e687125-c9f3-44cf-aadd-99a71d2059ed" /><br>
     <h4>상황별 jitter 비교 그래프</h4>
       
-      <br><br>
+      <br>
     
     1) BLE 공격 상황시 발생하는 advertising packet을 활용해 추출한 상황별 jitter dataset을 Transformer로 학습하여 딥러닝 모델 생성
     2) tshark와 연동하여 실시간 jitter를 측정하는 코드 구현
@@ -97,7 +97,7 @@
 
     <img width="500" height="1750" alt="Part3-2 BLE 웨어러블 기기 해킹" src="https://github.com/user-attachments/assets/844d5a6a-4079-4714-a7d2-84a5f4729528" /><br>
     <h4>BLE 웨어러블 기기 해킹 결과</h4>
-      <br><br>
+      <br>
     
 
 
@@ -110,11 +110,11 @@
 
     <img width="600" alt="결과1 솔루션 실행 화면" src="https://github.com/user-attachments/assets/ab89ec99-81be-484b-97ea-e7e62954991c" />
     <h4>솔루션 실행 화면</h4>
-      <br><br>
+      <br>
 
     <img width="600" alt="결과2 공격 탐지시 메일 전송" src="https://github.com/user-attachments/assets/63fe9629-2867-4808-891a-57c56c96063e" />
     <h4>공격 탐지 시 메일 전송</h4>
-      <br><br>
+      <br>
 
     + 실시간으로 jitter 정보를 받아 적은 지연으로 공격 탐지
     + 하나의 스크립트로 작성하여 효율적인 **실시간 공격 탐지 확인**
@@ -135,14 +135,22 @@
     |---|---|
     | ![adaptive](https://github.com/user-attachments/assets/470f1187-fa11-49a9-a06a-2d6009815709) | ![fixed](https://github.com/user-attachments/assets/fcdf6c9b-1301-4c8d-90c6-bcc88c90a30a) |
 
-    <h4>Proposed(Deeplearning Valid) Confusion Matrix</h4>
+    <h4>Proposed(Deeplearning Valid) Confusion Matrix</h4>  <br>
+
+
+
+
+    <img src="https://github.com/user-attachments/assets/5a0252ba-57f6-4379-a03e-9eb4f776bbac" alt="attack_detection_prob_plot_page" width="600" />
+
+    <h4>Attack Detection Gragh</h4>
+
 
 
     - Threshold 기반은 평균/표준편차 같은 단일 통계값이 임계범위에 들어오면 정상, 벗어나면 공격으로 보는 고정 규칙이라서, 스푸핑 비율·환경 변화로 분포가 조금만 바뀌어도 성능이 쉽게 무너짐  
     - 하지만 Proposed(Deeplearning Valid) 방법은 윈도우 전체의 시간적 패턴(형태, 변화량, 연속성)을 학습해 단순 수치가 비슷해도 “공격스러운 흐름”을 구분할 수 있고, (Adaptive처럼) 데이터 비율에 맞춰 학습하면 분포 변화에도 적응해서 탐지율이 더 높게 유지됨
 
 
-<br><br>
+  <br>
 
   - ### 기대 효과
     - 실시간 공격 탐지를 통해 외부의 악의적 간섭을 차단하고, 의도치 않은 촉각 피드백 및 오작동을 방지하여 기기 사용의 안전성과 신뢰도 확보
@@ -151,7 +159,7 @@
     - 추가 센서 및 고가 장비 없이 소프트웨어로만 구현 가능해 총소유비용(TCO) 절감 가능
 
 
-    
+    <br>
   
 ## Project Outcome
 - ### 2025년도 한국통신학회 하계학술대회 논문 발표
