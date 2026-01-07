@@ -4,6 +4,14 @@
 - 20221095 민현선 
 - 20221110 이다은
 
+<br>
+
+## <u>Teamate</u> Repository Overview
+- 본 저장소는 2025 캡스톤디자인(BEE Team) 프로젝트 산출물과, 한국통신학회 논문지 '블루투스 기반 웨어러블 기기의 세션 하이재킹 공격 분석 및 심층학습 기반 보안 탐지 시스템'의 자료를 함께 관리합니다.  
+- 캡스톤 프로젝트의 진행 경과 및 결과물은 `001 Report`와 `002 Presentation` 폴더를 참고해 주세요. 통합된 코드/실험 재현 자료는 `003 Code`에 정리되어 있습니다.
+
+<br>
+
 ## <u>Teamate</u> Project Background
 - ### 기존 해결책의 문제점
   - 웨어러블 기기는 보통ﾠ 편의성과 호환성 위주로 개발되며 보안 업데이트나 암호화 프로토콜 적용이 부족한 경우가 많아 ﾠ공격자가 쉽게 통신을 가로채거나 변조 가능
@@ -14,7 +22,9 @@
   - BLE/Bluetooth 기반 AR 기기는 무결성·인증 취약점으로 인해 공격자가 기기 동작을 직접 조작할 수 있음
   - 기존 보안 방식은 재연결 시나리오, 중계 공격, 무결성 검증 부재 상황을 막기 어려움
   - AI 기반 실시간 이상행위 탐지 및 패킷 학습을 통한 보안 강화 솔루션의 필요성 확인
-  
+    
+<br>
+
 ## System Design
 - ### System Requirements
   + ### 공통 실험 환경 구축
@@ -26,9 +36,11 @@
     + BLE 기반 조명 장치 및 AR 수트(진동센서 장착) 연결    
     + Bluepy, BtleJuice 등 오픈소스 툴을 활용한 통신 분석 및 공격 시나리오 설계  <br><br>  
 
-  + ### 실험 1: BLE 조명 장치 공격
+  + ### 실험 1: BLE 조명 색상 변조 공격
     <img width="409" height="300" alt="image" src="https://github.com/user-attachments/assets/67cd45d0-8f7d-493a-8ac9-ca3f80eda263" />
     <h4>BLE 조명 공격 환경</h4>
+ 
+    
       <br>
 
     1) 특정 BLE 장치(KocoaFab_BLE)를 스캔하여 UUID 기반 Write Characteristic을 식별    
@@ -39,6 +51,7 @@
     
      <img src="https://github.com/user-attachments/assets/33a14611-6acc-4efd-bd0b-718feeb4c79d" alt="Part3-1 BLE 웨어러블기기 공격 환경" width="409" />
      <h4>BLE 웨어러블기기 공격 환경</h4>
+     
        <br>
 
     1) 실험 1에서 세팅한 환경을 BLE 조명이 아닌 촉각 수트에 적용하여 실험
@@ -58,9 +71,12 @@
       
       <br>
     
+    
     1) BLE 공격 상황시 발생하는 advertising packet을 활용해 추출한 상황별 jitter dataset을 Transformer로 학습하여 딥러닝 모델 생성
     2) tshark와 연동하여 실시간 jitter를 측정하는 코드 구현
-    3) 파이썬 스크립트에 딥러닝 모델을 적용하여 kali linux에서 실시간 공격 탐지 실행<br><br>
+    3) 파이썬 스크립트에 딥러닝 모델을 적용하여 kali linux에서 실시간 공격 탐지 실행
+   
+  <br>
 
     
 ## Case Study
@@ -79,11 +95,18 @@
     | **공격 목적** | - BLE write 무결성 침해<br>- 사용자 기기 제어<br>- GATT 특성 변조 | - BLE 세션 가로채기<br>- 정보 유출<br>- 기능 오용 | - 연결된 BLE 장치 제어<br>- 기능 트리거<br>- 역할 탈취<br>- 민감 정보 탈취 |
     | **공격 계층** | - Link Layer<br>- SMP<br>- GATT | - GATT | - Link Layer<br>- ATT |
     | **침해 정도** | 중간자 위치 및<br>전방위 조작 가능 | 가짜 장치로 연결 유도 및<br>데이터 조작 | 중대한 기능 탈취 및<br>역할 조작 가능 |
+
     <br>
   
   
 ## Conclusion
-  - ### 실험 1: BLE 조명 장치 공격 결과<br>
+  - ### 실험 1: BLE 조명 색상 변조 공격 결과<br>
+ 
+    https://youtu.be/2XQfQ4JO8hs
+    <h4>BLE 조명 색상 변조 공격 영상</h4>
+
+    <br>
+
     <img width="500" height="2475" alt="Part2-2 BLE 조명 해킹" src="https://github.com/user-attachments/assets/006d9070-3a5a-42f9-8bc9-d1d089cf491b" /><br>
     <h4>BLE 조명 해킹 결과</h4>
       <br></h4>
@@ -95,9 +118,15 @@
 
   - ### 실험 2: AR 수트 진동 센서 공격 결과
 
+    https://youtu.be/quWGp9cf_bA
+    <h4>BLE 웨어러블기기 진동 센서 공격 영상</h4>
+
+    <br>
+
     <img width="500" height="1750" alt="Part3-2 BLE 웨어러블 기기 해킹" src="https://github.com/user-attachments/assets/844d5a6a-4079-4714-a7d2-84a5f4729528" /><br>
     <h4>BLE 웨어러블 기기 해킹 결과</h4>
-      <br>
+    
+    <br>
     
 
 
@@ -106,7 +135,12 @@
     + 앱–수트 간 세션이 공격자에 의해 강제 끊기고 재주입될 수 있음 → 통신 무결성 취약
     + **AR 웨어러블 기기 역시 Bluetooth 통신 취약점을 통해 악용 가능하며, 공격자는 진동 기능을 임의로 제어 가능**<br><br>
 
-  - ### 실험 3: 실시간 Jitter 공격 탐지 결과<br><br>
+  - ### 실험 3: 실시간 Jitter 공격 탐지 결과
+
+    https://youtu.be/TwcWgBhymp8
+    <h4>Jitter를 활용한 실시간 BLE 공격 탐지 솔루션 영상</h4>
+
+    <br>
 
     <img width="600" alt="결과1 솔루션 실행 화면" src="https://github.com/user-attachments/assets/ab89ec99-81be-484b-97ea-e7e62954991c" />
     <h4>솔루션 실행 화면</h4>
@@ -164,4 +198,7 @@
 ## Project Outcome
 - ### 2025년도 한국통신학회 하계학술대회 논문 발표
   - 민현선, 이다은, 박경민, 김태훈, 방인규, "블루투스 프로토콜의 보안 취약점에 대한 연구 동향," 한국통신학회 하계학술대회 논문집, 2025.
+
+- ### 2025년도 한국통신학회 논문지 투고(진행중)
+  - 민현선, 이다은, 이아현, 김태훈, 방인규, "블루투스 기반 웨어러블 기기의 세션 하이재킹 공격 분석 및 심층학습 기반 보안 탐지 시스템," 한국통신학회 논문지, 2026.
 
